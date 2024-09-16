@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/modern-normalize.css" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <title>Book Notes</title>
+    </head>
+    <body>
+        <header class="header">
+            <h1>Book Notes</h1>
+        </header>
+        <main class="main">
+            <div class="book__cards">
+                <section class="book__card">
+                    <figure class="book__cover-wrapper">
+                        <img
+                            src="#"
+                            alt="capa do livro <%= name %>"
+                            class="book__cover"
+                        />
+                        <figcaption class="book__name"><%= name %></figcaption>
+                    </figure>
+                    <p class="author__name"><%= author %></p>
+                    <div class="dates-wtapper">
+                        <p class="date__creation"><%= creationDate %></p>
+                        <p class="date__modified"><%= modifiedDate %></p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>
