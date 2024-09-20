@@ -1,28 +1,21 @@
 import express from "express";
-import { getBooks } from "./functions/get-books";
+import { getBooks } from "./functions/get-books.js";
+import { getBooksCovers } from "./functions/get-book-cover.js";
 
 const app = express();
 const port = 3000;
-const backendURL = "http://localhost:3001";
-
-db.connect();
+const backendURL = "http://localhost:3001/";
 
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
-    const books = await getBooks();
-    console.log(books);
+    const response = await getBooks(backendURL);
+    const books = response.data;
+    const booksCoversUrls = getBooksCovers(books);
 
-    res.render("index.ejs", {
-        name: "nome livro",
-        author: "autor",
-        rank: 4,
-        cover: "#",
-        createdDate: "data",
-        modifiedDate: "data",
-    });
+    res.render("index.ejs", { books: books, booksCoversUrls: booksCoversUrls });
 });
 
 app.listen(port, () => {
-    console.log(`Book Notes Server running on port #{post}`);
+    console.log(`Book Notes Web running on port ${port}`);
 });

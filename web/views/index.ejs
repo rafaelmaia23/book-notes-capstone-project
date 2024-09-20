@@ -5,30 +5,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/modern-normalize.css" />
         <link rel="stylesheet" href="styles/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
         <title>Book Notes</title>
     </head>
     <body>
         <header class="header">
-            <h1>Book Notes</h1>
+            <div class="logo__wrapper">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="logo__icon"
+                >
+                    <path
+                        d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
+                    />
+                </svg>
+                <h1 class="logo">Book Notes</h1>
+            </div>
+            <nav class="navbar">
+                <div class="mobile__menu">
+                    <span class="menu"></span>
+                    <span class="menu"></span>
+                    <span class="menu"></span>
+                </div>
+                <div class="mobile__menu__options menu__close menu__desktop">
+                    <ul class="mobile__menu__list">
+                        <li class="mobile__menu__item">
+                            <a href="#">Recents</a>
+                        </li>
+                        <li class="mobile__menu__item">
+                            <a href="#">Best Rank</a>
+                        </li>
+                        <li class="mobile__menu__item">
+                            <a href="#">Alphabetical</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
-        <main class="main">
-            <div class="book__cards">
-                <section class="book__card">
-                    <figure class="book__cover-wrapper">
-                        <img
-                            src="#"
-                            alt="capa do livro <%= name %>"
-                            class="book__cover"
-                        />
-                        <figcaption class="book__name"><%= name %></figcaption>
+        <main class="container">
+            <div class="cards__wrapper">
+                <% for( let i = 0; i < books.length; i++ ) { %>
+                <article class="card">
+                    <figure class="book__cover">
+                        <div class="img__wrapper">
+                            <img src="<%= booksCoversUrls[i] %>" alt="Cover of
+                            the book <%= books[i].name %>""
+                            class="book__cover-img" />
+                        </div>
+                        <figcaption class="book__title">
+                            <h2><%= books[i].name %></h2>
+                        </figcaption>
                     </figure>
-                    <p class="author__name"><%= author %></p>
-                    <div class="dates-wtapper">
-                        <p class="date__creation"><%= creationDate %></p>
-                        <p class="date__modified"><%= modifiedDate %></p>
+                    <div class="card__content">
+                        <div class="card__text__wrapper">
+                            <h3 class="book__author">
+                                by: <%= books[i].author %>
+                            </h3>
+                            <p class="book__isbn">ISBN: <%= books[i].isbn %></p>
+                            <p class="note__creation__date">
+                                Note date: <%= new
+                                Date(books[i].creation_date).toLocaleString('pt-BR',
+                                { day: '2-digit', month: '2-digit', year:
+                                'numeric', hour: '2-digit', minute: '2-digit',
+                                hour12: false }) %>
+                            </p>
+                        </div>
+                        <a href="#" class="btn">Read notes</a>
                     </div>
-                </section>
+                    <footer class="card__footer">
+                        <p class="note__modification__date">
+                            Modified at: <%= new
+                            Date(books[i].modification_date).toLocaleString('pt-BR',
+                            { day: '2-digit', month: '2-digit', year: 'numeric',
+                            hour: '2-digit', minute: '2-digit', hour12: false })
+                            %>
+                        </p>
+                    </footer>
+                </article>
+                <% } %>
             </div>
         </main>
+        <script src="/js/mobile-menu.js" type="text/javascript"></script>
     </body>
 </html>

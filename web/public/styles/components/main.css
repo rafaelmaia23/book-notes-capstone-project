@@ -1,0 +1,126 @@
+.cards__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.card {
+    background-color: var(--slate-100);
+    border-radius: 5%;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    box-shadow: 5px 5px 10px 5px var(--slate-600);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 10px 5px var(--slate-400);
+
+    .book__cover-img {
+        transform: translatey(3px);
+    }
+}
+
+.card h2,
+.card figure {
+    margin: 0;
+}
+
+.book__cover {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.img__wrapper {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--slate-200);
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    padding: 0.5rem;
+}
+
+.book__cover-img {
+    width: 180px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.book__title {
+    margin: 0 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.card__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.book__author {
+    font-weight: 200;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+h3.book__author,
+p.book__isbn,
+p.note__creation__date {
+    margin: 0;
+}
+
+.book__isbn,
+.note__creation__date {
+}
+
+.btn {
+    align-self: center;
+    color: var(--slate-800);
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid var(--slate-800);
+    border-radius: 10px;
+    padding: 1rem 5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 10px 5px var(--slate-900);
+    background-color: var(--slate-800);
+    color: var(--slate-100);
+    border: 3px solid var(--slate-100);
+}
+
+.card__footer {
+    width: 100%;
+    border-top: 3px solid var(--slate-800);
+    display: flex;
+    justify-content: center;
+}
