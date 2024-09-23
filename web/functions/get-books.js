@@ -5,6 +5,6 @@ export const getBooks = async (url) => {
         const response = await axios.get(`${url}books`);
         return response;
     } catch (err) {
-        console.error(`Erro na requisição get books: `, err);
+        console.error(`Erro from query get books: `, err);
     }
 };
