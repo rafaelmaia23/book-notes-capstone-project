@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin: 0.5rem;
+    margin: 9.5rem 0.5rem 0.5rem 0.5rem;
     padding: 0.5rem;
 }
 
@@ -98,6 +98,7 @@ p.note__creation__date {
 }
 
 .btn {
+    white-space: nowrap;
     align-self: center;
     color: var(--slate-800);
     text-align: center;
@@ -123,4 +124,19 @@ p.note__creation__date {
     border-top: 3px solid var(--slate-800);
     display: flex;
     justify-content: center;
+}
+
+/* md */
+@media (min-width: 768px) {
+    .card {
+        max-width: 280px;
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .cards__wrapper {
+        margin-top: 5.5rem;
+        margin-left: 7rem;
+    }
 }
