@@ -5,6 +5,9 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--slate-100);
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 .logo__wrapper {
