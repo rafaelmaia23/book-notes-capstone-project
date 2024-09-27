@@ -10,17 +10,20 @@ const backendURL = "http://localhost:3001/";
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
-    const booksResponse = await getBooks(backendURL);
-    const books = booksResponse.data;
+    const { data: books } = await getBooks(backendURL);
     const booksCoversUrls = getBooksCovers(books);
-    const categoriesResponse = await getCategories(backendURL);
-    const categories = categoriesResponse.data;
+    const { data: categories } = await getCategories(backendURL);
 
     res.render("index.ejs", {
         books: books,
         booksCoversUrls: booksCoversUrls,
         categories: categories,
     });
+});
+
+app.get("/new-book", async (req, res) => {
+    const { data: categories } = await getCategories(backendURL);
+    res.render("newBook.ejs", { categories: categories });
 });
 
 app.listen(port, () => {

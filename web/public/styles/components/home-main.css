@@ -1,9 +1,18 @@
+main {
+    -ms-overflow-style: none; /* Esconde a barra de rolagem no IE e Edge legados */
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+}
+
+main::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome, Safari e navegadores WebKit */
+}
+
 .cards__wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin: 9.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0.5rem;
     padding: 0.5rem;
 }
 
@@ -135,8 +144,4 @@ p.note__creation__date {
 
 /* lg */
 @media (min-width: 1024px) {
-    .cards__wrapper {
-        margin-top: 5.5rem;
-        margin-left: 7rem;
-    }
 }

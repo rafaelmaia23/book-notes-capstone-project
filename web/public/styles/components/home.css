@@ -1,0 +1,46 @@
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "aside"
+        "main";
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+header {
+    grid-area: header;
+}
+
+aside {
+    grid-area: aside;
+}
+
+main {
+    grid-area: main;
+}
+
+@media (min-width: 1024px) {
+    body {
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "aside main";
+        grid-template-columns: 7rem 1fr;
+        grid-template-rows: 5rem 1fr;
+        overflow: hidden;
+    }
+
+    header {
+    }
+
+    aside {
+        height: calc(100vh - 5rem);
+    }
+
+    main {
+        overflow-y: auto;
+        height: calc(100vh - 5rem);
+    }
+}

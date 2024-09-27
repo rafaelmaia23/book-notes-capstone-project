@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/modern-normalize.css" />
+        <link rel="stylesheet" href="styles/components/new-book.css" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+        />
+        <link rel="stylesheet" href="styles/components/new-book-main.css" />
+        <title>Book Notes</title>
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <main class="container">
+            <form class="form" action="/new-book" method="post">
+                <div class="form-item item1">
+                    <label class="form-label" for="book-title"
+                        >Book Title</label
+                    >
+                    <input
+                        class="form-input book-title"
+                        type="text"
+                        id="book-title"
+                        name="book-title"
+                        placeholder="Dracula"
+                        required
+                    />
+                </div>
+                <div class="form-author-isbn-wrapper">
+                    <div class="form-item item2">
+                        <label class="form-label" for="book-author"
+                            >Book Author</label
+                        >
+                        <input
+                            class="form-input book-author"
+                            type="text"
+                            id="book-author"
+                            name="book-author"
+                            placeholder="Bram Stoker"
+                            required
+                        />
+                    </div>
+                    <div class="form-item item3">
+                        <label class="form-label" for="book-isbn">ISBN</label>
+                        <input
+                            class="form-input book-isbn"
+                            type="number"
+                            id="book-isbn"
+                            name="book-isbn"
+                            minlength="13"
+                            maxlength="13"
+                            placeholder="9781503261389"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div class="form-item item4">
+                    <label class="form-label" for="book-categories"
+                        >Book Categories</label
+                    >
+                    <select
+                        name="book-categories"
+                        id="book-categories"
+                        class="book-categories"
+                        multiple
+                        required
+                    >
+                        <% categories.forEach(categorie => { %>
+                        <option value="<%= categorie.name %>">
+                            <%= categorie.name %>
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-item item5">
+                    <label class="form-label" for="book-notes"
+                        >Book Notes</label
+                    >
+                    <textarea
+                        class="book-notes"
+                        name="book-notes"
+                        id="book-notes"
+                        placeholder="Your thoughts and notes about Dracula"
+                    ></textarea>
+                </div>
+                <div class="form-item item6">
+                    <input class="btn-submit" type="submit" />
+                </div>
+            </form>
+        </main>
+        <script src="/js/mobile-menu.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="/js/choices-init.js"></script>
+    </body>
+</html>
